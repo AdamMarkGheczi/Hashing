@@ -1,0 +1,54 @@
+﻿<Window x:Class="Hashing.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:CustomControls="clr-namespace:Hashing.CustomControls"
+        xmlns:local="clr-namespace:Hashing"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="70*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" FontSize="50" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Hash Calculator</TextBlock>
+            <TextBlock Grid.Row="1" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Status}"/>
+        </Grid>
+        
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80*" />
+                <ColumnDefinition Width="20*" />
+            </Grid.ColumnDefinitions>
+            <CustomControls:FileSelector Grid.Column="0" x:Name="FileSelectorInstance" Height="25" Margin="20"/>
+            <Button Grid.Column="1" Name="CalculateBTN" Click="CalculateBTN_Click" Width="100" Height="25" FontSize="15" IsEnabled="{Binding CalculateButtonEnabled}">Calculate</Button>
+        </Grid>
+
+        <Grid Grid.Row="2">
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <CustomControls:HashDisplayControl Grid.Row="0" x:Name="MD5Display" HashFunctionName="MD5" Height="50" Margin="10"/>
+            <CustomControls:HashDisplayControl Grid.Row="1" x:Name="SHA1Display" HashFunctionName="SHA1" Height="50" Margin="10"/>
+            <CustomControls:HashDisplayControl Grid.Row="2" x:Name="SHA256Display" HashFunctionName="SHA256" Height="50" Margin="10"/>
+            <CustomControls:HashDisplayControl Grid.Row="3" x:Name="SHA384Display" HashFunctionName="SHA384" Height="50" Margin="10"/>
+            <CustomControls:HashDisplayControl Grid.Row="4" x:Name="SHA512Display" HashFunctionName="SHA512" Height="50" Margin="10"/>
+        </Grid>
+        
+    </Grid>
+</Window>

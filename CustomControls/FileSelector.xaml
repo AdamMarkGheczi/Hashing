@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="Hashing.CustomControls.FileSelector"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hashing.CustomControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Name="PathTB" Grid.Column="0" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Background="Transparent" TextChanged="PathTB_TextChanged" Text="{Binding Path, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock Name="PlaceHolderTB" Grid.Column="0" VerticalAlignment="Center" Padding="10, 0, 0, 0" Foreground="Gray" Visibility="{Binding PlaceholderVisibility}" Panel.ZIndex="-1">Supply path to file</TextBlock>
+        <Button Name="BrowseBTN" Grid.Column="1" Width="100" FontSize="15" Click="BrowseBTN_Click">Browse...</Button>
+    </Grid>
+</UserControl>
